@@ -24,10 +24,12 @@ CREATE DATABASE  bd_encrypt
 		dh_login timestamp not null,
 		licensa varchar,
 		ip varchar,
+		ip_rede varchar,
 		name_machine varchar,
 		id_usuario varchar
 	);
 	
+	drop table sys.historico_requisicao_tb
 	create table if not exists sys.historico_requisicao_tb(
 			id_requisicao serial not null primary key,
 			dh_requisicao timestamp not null,

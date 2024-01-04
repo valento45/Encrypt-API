@@ -25,5 +25,16 @@ namespace Encrypt_API.Controllers
 
             return Json(encryptKey);
         }
+
+
+
+        [HttpPost]
+        [Route("LoginAffected")]
+        public async Task<JsonResult> RegistrarLogin(LoginRequest request)
+        {
+            var response = await this.encryptService.RegisterLogin(request);
+
+            return Json(response);
+        }
     }
 }

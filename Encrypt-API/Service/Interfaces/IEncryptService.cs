@@ -7,5 +7,6 @@ namespace Encrypt_API.Service.Interfaces
     {
 
         Task<KeyEncryptResponse> ObterChaveEncrypt(EncryptRequest request);
+        Task<bool> RegisterLogin(LoginRequest request);
     }
 }
