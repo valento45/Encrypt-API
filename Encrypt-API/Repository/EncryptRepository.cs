@@ -33,10 +33,10 @@ namespace Encrypt_API.Repository
             return result;
         }
 
-        public async Task<bool> InsertLogin(LoginRequest request)
+        public async Task<RegisterLoginResponse> InsertLogin(LoginRequest request)
         {
             string query = "insert into sys.login_tb (dh_login, licensa, ip, ip_rede, name_machine, id_usuario)" +
-                " values (@dh_login, @licensa, @ip, @ip_rede, @name_machine, @id_usuario)";
+                " values (@dh_login, @licensa, @ip, @ip_rede, @name_machine, @id_usuario) returning id_login;";
 
 
             NpgsqlCommand cmd = new NpgsqlCommand(query);
@@ -48,9 +48,16 @@ namespace Encrypt_API.Repository
             cmd.Parameters.AddWithValue(@"name_machine", request.NomeMaquina);
             cmd.Parameters.AddWithValue(@"id_usuario", request.IdUsuario);
 
-            var result = await base.ExecuteCommand(cmd);
+            var res = await base.ExecuteScalarAsync(cmd);
+            
+            if(res != null)
+            {
+                var obj = new RegisterLoginResponse();  
+                obj.IdLogin = long.Parse(res?.ToString());
 
-            return result;
+                return obj;
+            }
+            return null;            
         }
     }
 }

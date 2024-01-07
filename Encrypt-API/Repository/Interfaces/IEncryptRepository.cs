@@ -8,6 +8,6 @@ namespace Encrypt_API.Repository.Interfaces
     {
         Task<KeyEncryptResponse> GetEncryptKey(Sistema keySistema);
 
-        Task<bool> InsertLogin(LoginRequest request);
+        Task<RegisterLoginResponse> InsertLogin(LoginRequest request);
     }
 }

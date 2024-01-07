@@ -72,7 +72,7 @@ namespace Encrypt_API.Service
             obj.PossuiComandos = true;
         }
 
-        public async Task<bool> RegisterLogin(LoginRequest request)
+        public async Task<RegisterLoginResponse> RegisterLogin(LoginRequest request)
         {
             return await encryptRepository.InsertLogin(request);
         }
