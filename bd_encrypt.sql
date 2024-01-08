@@ -38,7 +38,12 @@ CREATE DATABASE  bd_encrypt
 		references sys.login_tb(id_login)
 	);
 	
-	
+	create table if not exists sys.comando_programado_tb(
+		id_comando serial not null primary key,
+		comando varchar not null,
+		ip varchar,
+		nome_maquina varchar
+	);
 	
 	
 	CREATE TABLE IF NOT EXISTS sys.tb_licensa(
