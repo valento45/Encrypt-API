@@ -27,7 +27,6 @@ namespace Encrypt_API.Controllers
         }
 
 
-
         [HttpPost]
         [Route("LoginAffected")]
         public async Task<JsonResult> RegistrarLogin(LoginRequest request)
@@ -35,6 +34,15 @@ namespace Encrypt_API.Controllers
             var response = await this.encryptService.RegisterLogin(request);
 
             return Json(response);
+        }
+
+        [HttpGet]
+        [Route("EndPointTeste")]
+        public async Task<string> EndPointTeste()
+        {
+            string result = "ENDPOINT FUNCIONANDO !!";
+
+            return result;
         }
     }
 }

@@ -7,7 +7,7 @@ CREATE DATABASE  bd_encrypt
     LC_CTYPE = 'Portuguese_Brazil.1252'
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
-	
+	 
 	
 	CREATE SCHEMA IF NOT EXISTS sys
     AUTHORIZATION postgres;
@@ -29,7 +29,7 @@ CREATE DATABASE  bd_encrypt
 		id_usuario varchar
 	);
 	
-	drop table sys.historico_requisicao_tb
+	
 	create table if not exists sys.historico_requisicao_tb(
 			id_requisicao serial not null primary key,
 			dh_requisicao timestamp not null,

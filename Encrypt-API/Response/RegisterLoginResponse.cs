@@ -3,6 +3,5 @@
     public class RegisterLoginResponse
     {
         public long IdLogin { get; set; }
-
     }
 }
